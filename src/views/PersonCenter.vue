@@ -207,7 +207,7 @@ const save = () => {
     request.put('/user',user).then(res => {
         if(res.code === '200') {
             ElMessage.success('保存成功')
-            store.setUser(user)
+            userstore.setUser(user)
         } else {
             ElMessage.error(res.msg)
         }

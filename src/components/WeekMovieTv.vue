@@ -255,6 +255,21 @@ const handleFavorite = () => {
     return;
   }
   // 收藏逻辑
+  request.post("/favoritelist", {
+    userId: useid,
+    movietvId: currentContent.value.week.id,
+    type: weekType.value
+}, {
+    // headers: {
+    //     'Authorization': userStore.getBearerToken
+    // }
+}).then(res => {
+    if (res.code === '200') {
+        ElMessage.success('收藏成功');
+    } else {
+      ElMessage.error(res.msg);
+    }
+});
 };
 
 const handleRate = () => {
